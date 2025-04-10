@@ -365,7 +365,6 @@ document.addEventListener("DOMContentLoaded", function () {
     edgesArr.forEach(edge => {
       allowedNodeIds.add(edge.from);
       allowedNodeIds.add(edge.to);
-      if (edge.accuser) allowedNodeIds.add(edge.accuser);
       if (edge.accused && Array.isArray(edge.accused)) {
         edge.accused.forEach(id => allowedNodeIds.add(id));
       }
@@ -398,12 +397,7 @@ document.addEventListener("DOMContentLoaded", function () {
           label: person.姓名,
           color: getColorByIdentity(person.身份)
       }));
-    const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => {
-      let ids = [];
-      if (edge.accuser) ids.push(edge.accuser);
-      if (edge.accused && Array.isArray(edge.accused)) ids = ids.concat(edge.accused);
-      return ids;
-    }));
+const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => [edge.from, edge.to]));
     const filteredNodes = nodesArray.filter(node => relatedIds.has(node.id));
     const processedEdges = preprocessEdges(fullTestimonyData.edges);
     const edgesWithIds = processedEdges.map((edge, index) => ({
@@ -659,12 +653,7 @@ document.addEventListener("DOMContentLoaded", function () {
           label: person.姓名,
           color: getColorByIdentity(person.身份)
       }));
-    const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => {
-      let ids = [];
-      if (edge.accuser) ids.push(edge.accuser);
-      if (edge.accused && Array.isArray(edge.accused)) ids = ids.concat(edge.accused);
-      return ids;
-    }));
+const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => [edge.from, edge.to]));
     const filteredNodes = nodesArray.filter(node => relatedIds.has(node.id));
     const processedEdges = preprocessEdges(fullTestimonyData.edges);
     const edgesWithIds = processedEdges.map((edge, index) => ({
@@ -887,7 +876,7 @@ document.addEventListener("DOMContentLoaded", function () {
     edgesArr.forEach(edge => {
       allowedNodeIds.add(edge.from);
       allowedNodeIds.add(edge.to);
-      if (edge.accuser) allowedNodeIds.add(edge.accuser);
+
       if (edge.accused && Array.isArray(edge.accused)) {
         edge.accused.forEach(id => allowedNodeIds.add(id));
       }
@@ -920,12 +909,7 @@ document.addEventListener("DOMContentLoaded", function () {
           label: person.姓名,
           color: getColorByIdentity(person.身份)
       }));
-    const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => {
-      let ids = [];
-      if (edge.accuser) ids.push(edge.accuser);
-      if (edge.accused && Array.isArray(edge.accused)) ids = ids.concat(edge.accused);
-      return ids;
-    }));
+const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => [edge.from, edge.to]));
     const filteredNodes = nodesArray.filter(node => relatedIds.has(node.id));
     const processedEdges = preprocessEdges(fullTestimonyData.edges);
     const edgesWithIds = processedEdges.map((edge, index) => ({
@@ -1145,7 +1129,7 @@ document.addEventListener("DOMContentLoaded", function () {
     edgesArr.forEach(edge => {
       allowedNodeIds.add(edge.from);
       allowedNodeIds.add(edge.to);
-      if (edge.accuser) allowedNodeIds.add(edge.accuser);
+
       if (edge.accused && Array.isArray(edge.accused)) {
         edge.accused.forEach(id => allowedNodeIds.add(id));
       }
@@ -1178,12 +1162,7 @@ document.addEventListener("DOMContentLoaded", function () {
           label: person.姓名,
           color: getColorByIdentity(person.身份)
       }));
-    const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => {
-      let ids = [];
-      if (edge.accuser) ids.push(edge.accuser);
-      if (edge.accused && Array.isArray(edge.accused)) ids = ids.concat(edge.accused);
-      return ids;
-    }));
+const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => [edge.from, edge.to]));
     const filteredNodes = nodesArray.filter(node => relatedIds.has(node.id));
     const processedEdges = preprocessEdges(fullTestimonyData.edges);
     const edgesWithIds = processedEdges.map((edge, index) => ({
@@ -1401,7 +1380,7 @@ document.addEventListener("DOMContentLoaded", function () {
     edgesArr.forEach(edge => {
       allowedNodeIds.add(edge.from);
       allowedNodeIds.add(edge.to);
-      if (edge.accuser) allowedNodeIds.add(edge.accuser);
+
       if (edge.accused && Array.isArray(edge.accused)) {
         edge.accused.forEach(id => allowedNodeIds.add(id));
       }
@@ -1434,12 +1413,7 @@ document.addEventListener("DOMContentLoaded", function () {
           label: person.姓名,
           color: getColorByIdentity(person.身份)
       }));
-    const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => {
-      let ids = [];
-      if (edge.accuser) ids.push(edge.accuser);
-      if (edge.accused && Array.isArray(edge.accused)) ids = ids.concat(edge.accused);
-      return ids;
-    }));
+const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => [edge.from, edge.to]));
     const filteredNodes = nodesArray.filter(node => relatedIds.has(node.id));
     const processedEdges = preprocessEdges(fullTestimonyData.edges);
     const edgesWithIds = processedEdges.map((edge, index) => ({
@@ -1656,12 +1630,7 @@ document.addEventListener("DOMContentLoaded", function () {
           label: person.姓名,
           color: getColorByIdentity(person.身份)
       }));
-    const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => {
-      let ids = [];
-      if (edge.accuser) ids.push(edge.accuser);
-      if (edge.accused && Array.isArray(edge.accused)) ids = ids.concat(edge.accused);
-      return ids;
-    }));
+const relatedIds = new Set(fullTestimonyData.edges.flatMap(edge => [edge.from, edge.to]));
     const filteredNodes = nodesArray.filter(node => relatedIds.has(node.id));
     const processedEdges = preprocessEdges(fullTestimonyData.edges);
     const edgesWithIds = processedEdges.map((edge, index) => ({
