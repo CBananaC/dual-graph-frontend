@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雙重關係圖</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
+  <!-- 加入 Font Awesome 圖標庫 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <h2>指控關係圖</h2>
+  <!-- 指控關係圖身份篩選欄位 -->
+  <div id="accusationFilter" class="filter-panel">
+    <span>篩選身份: </span>
+    <button class="filter-identity-button" data-identity="全部">全部</button>
+    <button class="filter-identity-button" data-identity="藍玉">藍玉</button>
+    <button class="filter-identity-button" data-identity="功臣">參與藍玉謀反的功臣</button>
+    <button class="filter-identity-button" data-identity="胡惟庸功臣">參與胡惟庸謀反的功臣</button>
+    <button class="filter-identity-button" data-identity="都督">都督</button>
+
+  </div>
+  <div class="container">
+    <div id="accusationGraph" class="graph"></div>
+    <div id="infoPanel" class="info-panel">請點擊人物或關係查看詳細資訊</div>
+  </div>
+
+  <!-- 中間按鈕區：作為指控者與作為被指控者 -->
+  <div class="filter-buttons">
+    <button id="accuserButton" class="filter-button">
+      <i class="fas fa-user-tie"></i> 作為指控者
+    </button>
+    <button id="accusedButton" class="filter-button">
+      <i class="fas fa-user-injured"></i> 作為被指控者
+    </button>
+  </div>
+
+  <h2>
+    證供關係圖
+    <button id="showAllButton" class="filter-button">
+      <i class="fas fa-eye"></i> 重置
+    </button>
+  </h2>
+  <!-- 新增證供關係圖的 label 篩選欄位 -->
+  <div id="testimonyFilter" class="filter-panel">
+    <span>篩選證供關係: </span>
+    <button class="filter-testimony-button" data-label="全部">全部證供關係</button>
+    <button class="filter-testimony-button" data-label="透露謀反動機">透露謀反動機</button>
+    <button class="filter-testimony-button" data-label="邀約謀反">邀約謀反</button>
+    <button class="filter-testimony-button" data-label="答應參與謀反">答應參與謀反</button>
+
+    <button class="filter-testimony-button" data-label="聯絡">聯絡</button>
+    <button class="filter-testimony-button" data-label="幫聯絡">幫聯絡</button>
+    <button class="filter-testimony-button" data-label="秘密商議">秘密商議</button>
+    <button class="filter-testimony-button" data-label="要求隱暪謀反">要求隱暪謀反</button>
+
+    <button class="filter-testimony-button" data-label="聚兵預備謀反">聚兵預備謀反</button>
+    <button class="filter-testimony-button" data-label="屯積兵馬">屯積兵馬</button>
+    <button class="filter-testimony-button" data-label="借兵馬">借兵馬</button>
+    <button class="filter-testimony-button" data-label="取兵馬">取兵馬</button>
+
+    <button class="filter-testimony-button" data-label="參與胡惟庸謀反">參與胡惟庸謀反</button>
+    <button class="filter-testimony-button" data-label="藍玉事敗後計劃謀反">藍玉事敗後計劃謀反</button>
+  </div>
+  <div class="container">
+    <div id="testimonyGraph" class="graph"></div>
+    <div id="infoPanelTestimony" class="info-panel">請點擊人物或關係查看詳細資訊</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
