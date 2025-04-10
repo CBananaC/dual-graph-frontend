@@ -1,4 +1,4 @@
-ocument.addEventListener("DOMContentLoaded", function () { 
+document.addEventListener("DOMContentLoaded", function () { 
   const API_BASE_URL = "https://dual-graph-api.onrender.com";
 
   let peopleData = {};              // { id: person }
